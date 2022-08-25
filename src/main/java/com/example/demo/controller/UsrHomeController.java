@@ -8,7 +8,11 @@ public class UsrHomeController {
 
 	
 	@RequestMapping("/home")
-	public String test() {
+	public String showMain() {
 		return "home";
+	}
+	@RequestMapping("/login")
+	public String showLogin() {
+		return "login";
 	}
 }
