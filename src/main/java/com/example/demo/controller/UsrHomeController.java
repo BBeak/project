@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsrHomeController {
 
 	
-	@RequestMapping("/home")
+	@RequestMapping("/home/main")
 	public String showMain() {
 		return "home";
 	}
-	@RequestMapping("/login")
-	public String showLogin() {
-		return "login";
+	@RequestMapping("/")
+	public String returntoHome() {
+		return "redirect:home/main";
 	}
 }

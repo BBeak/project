@@ -1,3 +1,44 @@
+const confirm ={
+    email: false,
+    password: false,
+};
+
+$(document).ready(function(){
+    addEvents()
+})
+/**이벤트 연결 함수 */
+function addEvents(){
+/**회원가입 이메일 체크 */
+$(".normal").on("keyup",function(event){
+    const target = $(event.target);
+    const targetName = target.attr("placeholder");
+
+    const email = $("input[placeholder=Email]").val();
+    const password = $("input[placeholder=Password").val();
+    /**이메일 정규 표현식 */
+    const regExp = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
+/**
+ * 이메일 양식 검증 @.
+ * 비밀번호가 5글자 이상인지 확인
+ */
+switch(targetName){
+    case "Email":
+        /** 이메일일 경우 이쪽이 실행됨 */
+
+        if(regExp.test(email)===false){
+            console.log("잘못된 이메일 양식입니다.")
+            makeWarning(target, "잘못된 이메일 양식입니다.");
+            confirm.email = false;
+        }else{
+            removeWarning(target);
+            confirm.email = true;
+        }
+}
+
+
+
+})
+/** 화면 전환 */
 let flag = 0;
 
 $('.signin').on("click", function(){
@@ -53,3 +94,4 @@ $('.signin').on("click", function(){
     flag = 0;
 } 
 })
+}
