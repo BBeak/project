@@ -8,7 +8,7 @@ body,
   transform-style: preserve-3d;
   user-select: none;
 }
-div{
+div .img{
 	cursor:none;
 }
 html,
@@ -30,4 +30,15 @@ svg {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.move-to-login{
+	
+	position:absolute;
+	z-index:1;
+		
+}
+.move-to-login{
+	text-decoration:none;
+	color:white;
 }

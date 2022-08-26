@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UsrLoginController {
-	@RequestMapping("usr/login")
+	@RequestMapping("usr/home/login")
 	public String showLogin() {
 		return "usr/login/login";
 	}

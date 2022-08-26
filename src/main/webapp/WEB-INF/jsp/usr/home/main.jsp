@@ -19,6 +19,11 @@
       </header>
     </section>
     <div class="stage">
+    <section class="header">
+      <header>
+        <div class="move-to-login"><a href="login">SIGN UP / SIGN IN</a></div>
+      </header>
+    </section>
       <div class="container">
         <div class="ring">
           <div class="img"></div>
