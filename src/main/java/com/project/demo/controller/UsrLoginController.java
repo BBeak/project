@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.project.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UsrLoginController {
-	@RequestMapping("/login")
+	@RequestMapping("usr/login")
 	public String showLogin() {
-		return "login";
+		return "usr/login/login";
 	}
 }

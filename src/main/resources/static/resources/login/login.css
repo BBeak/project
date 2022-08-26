@@ -175,7 +175,7 @@ p{
 }
 
 .icons{
-  text-aling:center;
+  text-align:center;
   margin-bottom:20px;
 }
 
@@ -203,9 +203,15 @@ input{
 
 .b-button{
   background-color:#079992;
-  clor:white;
+  color:white;
   padding:12px 60px;
   color:#fff;
   font-size:14px;
   border-radius:25px;
+}
+flag-1{
+	display:none;
+}
+flag-0{
+	display:none;
 }

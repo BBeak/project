@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.project.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsrHomeController {
 
 	
-	@RequestMapping("/home/main")
+	@RequestMapping("usr/home/main")
 	public String showMain() {
-		return "home";
+		return "usr/home/main";
 	}
 	@RequestMapping("/")
 	public String returntoHome() {
-		return "redirect:home/main";
+		return "redirect:usr/home/main";
 	}
 }
