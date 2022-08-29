@@ -27,10 +27,18 @@ public class UsrLoginController {
 	@ResponseBody
 	public ResultData<Member> doJoin(String loginId, String loginPw, String name, String email){
 		
-		Member member = memberService.getMemberById(joinRd.getData1)
-		if(Ut.empty(loginId)) {
-			
+		if(Ut.empty(email)) {
+			return ResultData.from("F-3", "Email (을)를 입력해주세요");
 		}
+		if(Ut.empty(loginPw)) {
+			return ResultData.from("F-2","loginPw(을)를 입력해주세요");
+		}
+		if(Ut.empty(name)) {
+			return ResultData.from("F-3", "name(을)를 입력해주세요");
+		}
+		Member member = memberService.getMemberById(joinRd.getData1);
+				
 		return ResultData.newData(joinRd, "member", member);
 	}
+		
 }
