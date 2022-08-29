@@ -209,9 +209,9 @@ input{
   font-size:14px;
   border-radius:25px;
 }
-flag-1{
+.flag-1{
 	display:none;
 }
-flag-0{
+.flag-0{
 	display:none;
 }

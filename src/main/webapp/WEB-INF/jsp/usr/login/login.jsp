@@ -36,8 +36,8 @@
           <br/>
           <input type="password" placeholder="Password" class="normal"><br>
           <p class="normal forgot">Forgot your password?</p>
-          <button class="b-button normal flag-1">SIGN UP</button>
-          <button class="b-button normal flag-0">SIGN IN</button>
+          <button type="button" value="Signup" class="b-button normal flag-1">SIGN UP</button>
+          <button type="button" value="Signin" class="b-button normal flag-0">SIGN IN</button>
         </div>
       </div>
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
