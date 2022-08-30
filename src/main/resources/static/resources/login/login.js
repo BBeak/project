@@ -4,16 +4,8 @@ let flag = 0;
 
 $(document).ready(function(){
     addEvents()
-    if (flag === 0){
-        $(".flag-0").removeClass("flag-0");
-        $(".flag-0").next().addClass("flag-1");
-        
-    }else{
-        $(".flag-1").removeClass("flag-1");
-        $(".flag-1").prev().addClass("flag-0");
-        
-    }
-});
+    
+    });
 
 
 /**이벤트 연결 함수 */
@@ -43,12 +35,9 @@ switch(targetName){
         /** 비밀번호의 경우 */
     case "Password":
         if(password.length <= 5){
-            makeWarning(target, "잘못된 비밀번호 양식입니다.");
-            confirm.password = false;
-        }else{
-            removeWarning(target);
-            confirm.password=true;
+            alret("비밀번호는 5글자 이상이어야합니다.")
         }
+        
     }
 
 
@@ -73,7 +62,7 @@ $('.signin').on("click", function(){
         $(".light").text("use your email account");
         $(".name").hide();
         $("p-button").text("SIGN IN");
-        $("b-button").text("SIGN UP");
+        $(".button").html(`<button type="button" value="Signin" class="b-button normal flag">SIGN IN</button>`);
         $(".forgot").show();
         $(".form").css("border-radious","10px 0px 0px 10px");
         $(".move").css("border-radious","0px 10px 10px 0px");
@@ -98,7 +87,7 @@ $('.signin').on("click", function(){
         $(".light").text("use your email account for registration");
         $(".name").show();
         $("p-button").text("SIGN UP");
-        $("b-button").text("SIGN IN");
+        $(".button").html(`<button type="button" value="Signup" class="b-button normal flag">SIGN UP</button>`);
         $(".forgot").hide();
         $(".form").css("border-radious","10px 0px 0px 10px");
         $(".move").css("border-radious","0px 10px 10px 0px");

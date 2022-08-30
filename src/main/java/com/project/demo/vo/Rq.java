@@ -1,6 +1,7 @@
 package com.project.demo.vo;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +29,7 @@ public class Rq {
 	private HttpServletRequest req;
 	private HttpServletResponse resp;
 	private HttpSession session;
+	private Map<String, String> paramMap;
 
 	public Rq(HttpServletRequest req, HttpServletResponse resp, MemberService memberService) {
 		this.req = req;
@@ -86,8 +88,20 @@ public class Rq {
 		req.setAttribute("historyBack", true);
 		return "common/js";
 	}
+	public void pring(String str) {
+		try {
+			resp.getWriter().append(str);
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 
-	public String jsHistoryBack(String msg) {
+	public String jsHistoryBack(String resultCode, String msg) {
+		msg = String.format("[%s] %s", resultCode, msg);
 		return Ut.jsHistoryBack(msg);
 	}
 
@@ -109,12 +123,82 @@ public class Rq {
 	public String getEncodedCurrentUri() {
 		return Ut.getUriEncoded(getCurrentUri());
 	}
-
-	// 이 메서드는 Rq 객체가 자연스럽게 생성되도록 유도하는 역할을 한다.
-	// 지우면 안되고,
-	// 편의를 위해 BeforeActionInterceptor 에서 꼭 호출을 해야한다.
-	public void initOnBeforeActionInterceptor() {
-
+	
+	public void printReplaceJs(String msg, String uri) {
+		resp.setContentType("text/html; charset=UTF-8");
+		print(Ut.jsReplace(msg, uri));
+	}
+	public String getJoinUri() {	
+		return "../member/join?afterLogoutUri=" + getAfterLogoutUri();
 	}
 
+	public String getLoginUri() {
+		return "../member/login?afterLoginUri=" + getAfterLoginUri();
+	}
+
+	public String getLogoutUri() {	
+		return "../member/doLogout?afterLogoutUri=" + getAfterLogoutUri();
+	}
+	
+	public String getFindLoginIdUri() {	
+		return "../member/findLoginId?afterFindLoginIdUri=" + getAfterFindLoginIdUri();
+	}
+	
+	public String getFindLoginPwUri() {	
+		return "../member/findLoginPw?afterFindLoginPwUri=" + getAfterFindLoginPwUri();
+	}
+	
+	public String getAfterFindLoginIdUri() {
+		return getEncodedCurrentUri();
+	}
+	
+	public String getAfterFindLoginPwUri() {
+		return getEncodedCurrentUri();
+	}
+
+	public String getAfterLoginUri() {
+		String requestUri = req.getRequestURI();
+
+		// 로그인 후 돌아가면 안되는 페이지 URL 들을 적으시면 됩니다.
+		switch (requestUri) {
+		case "/usr/member/login":
+		case "/usr/member/join":
+		case "/usr/member/findLoginId":
+		case "/usr/member/findLoginPw":
+			return Ut.getUriEncoded(Ut.getStrAttr(paramMap, "afterLoginUri", ""));
+		}
+
+		return getEncodedCurrentUri();
+	}
+
+	public String getAfterLogoutUri() {
+		String requestUri = req.getRequestURI();
+
+		// 필요하다면 활성화
+		/*
+		switch (requestUri) {
+		case "/usr/article/write":
+			return "";
+		}
+		*/
+		
+		return getEncodedCurrentUri();
+	}
+	
+	public String getArticleDetailUriFromArticleList(Article article) {
+		return "../article/detail?id=" + article.getId() + "&listUri=" + getEncodedCurrentUri();
+	}
+	
+	public String getProfileImgUri(int membeId) {
+		return "/common/genFile/file/member/" + membeId + "/extra/profileImg/1";
+	}
+	
+	public String getProfileFallbackImgUri() {
+		return "https://via.placeholder.com/300/?text=*^_^*";
+	}
+	
+	public String getProfileFallbackImgOnErrorHtml() {
+		return "this.src = '" + getProfileFallbackImgUri() + "'";
+	}
 }
+

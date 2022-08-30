@@ -1,19 +1,14 @@
 package com.project.demo.vo;
 
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class ResultData<DT> {
-	@Getter
 	private String resultCode;
-	@Getter
 	private String msg;
-	@Getter
 	private DT data1;
-	@Getter
 	private String data1Name;
-	@Getter
+	
 	private Object data2;
 	
 	

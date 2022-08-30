@@ -15,8 +15,7 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-	public ResultData<Integer> join(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
-			String email) {
+	public ResultData<Integer> join(String loginId, String loginPw, String name, String email) {
 		// 로그인 아이디 중복 체크
 		Member oldMember = getMemberByLoginId(loginId);
 
@@ -31,7 +30,7 @@ public class MemberService {
 			return ResultData.from("F-8", Ut.f("해당 이름(%s)과 이메일(%s)은 이미 사용중입니다.", name, email));
 		}
 
-		memberRepository.join(loginId, loginPw, name, nickname, cellphoneNo, email);
+		memberRepository.join(loginId, loginPw, name, email);
 		int id = memberRepository.getLastInsertId();
 		
 		return ResultData.from("S-1", "회원가입이 완료되었습니다.","id", id);
