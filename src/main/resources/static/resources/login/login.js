@@ -11,9 +11,7 @@ $(document).ready(function(){
 /**이벤트 연결 함수 */
 function addEvents(){
 /**회원가입 이메일 체크 */
-$(".b-button").on("onclick",function(event){
-    const target = $(event.target);
-    const targetName = target.attr("placeholder");
+$(document).on("click",".Signup-b", function(){
 
     const email = $("input[placeholder=Email]").val();
     const password = $("input[placeholder=Password").val();
@@ -23,25 +21,26 @@ $(".b-button").on("onclick",function(event){
  * 이메일 양식 검증 @.
  * 비밀번호가 5글자 이상인지 확인
  */
-switch(targetName){
-    case "Email":
-        /** 이메일일 경우 이쪽이 실행됨 */
 
-        if(regExp.test(email)===false){
-            
-           alert( "잘못된 이메일 양식입니다.");
-           }
-
-        /** 비밀번호의 경우 */
-    case "Password":
-        if(password.length <= 5){
-            alret("비밀번호는 5글자 이상이어야합니다.")
-        }
-        
-    }
+	console.log(password);
+	if(regExp.test(email)===false){
+		alert("잘못된 이메일 양식입니다.");
+		return;
+	}
+	if(password.length <= 5){
+		alert("비밀번호는 5글자 이상이어야합니다.");
+		return;
+	}
+	else{
+		alert("회원가입이 완료되었습니다.");
+	}
 
 
-
+})
+$(document).on("click",".Signin-b", function(){
+	const email = $("input[placeholder=Email]").val();
+	const password = $("input[placeholder=Password]").val();
+	
 })
 /** 화면 전환 */
 
@@ -58,11 +57,11 @@ $('.signin').on("click", function(){
     $(".move").css("background-position", "right");
     
     setTimeout(function(){
-        $(".title").text("Sigh-in");
+        $(".title").text("Sign-in");
         $(".light").text("use your email account");
         $(".name").hide();
         $("p-button").text("SIGN IN");
-        $(".button").html(`<button type="button" value="Signin" class="b-button normal flag">SIGN IN</button>`);
+        $(".button").html(`<button type="button" value="Signin" class="b-button Signin-b normal flag">SIGN IN</button>`);
         $(".forgot").show();
         $(".form").css("border-radious","10px 0px 0px 10px");
         $(".move").css("border-radious","0px 10px 10px 0px");
@@ -87,11 +86,11 @@ $('.signin').on("click", function(){
         $(".light").text("use your email account for registration");
         $(".name").show();
         $("p-button").text("SIGN UP");
-        $(".button").html(`<button type="button" value="Signup" class="b-button normal flag">SIGN UP</button>`);
+        $(".button").html(`<button type="button" value="Signup" class="b-button Signup-b normal flag">SIGN UP</button>`);
         $(".forgot").hide();
         $(".form").css("border-radious","10px 0px 0px 10px");
         $(".move").css("border-radious","0px 10px 10px 0px");
-    }, 200) 
+    }, 200);
     flag = 0;
 } 
 })

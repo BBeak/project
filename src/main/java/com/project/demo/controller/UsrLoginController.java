@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.project.demo.service.MemberService;
 import com.project.demo.utill.Ut;
-import com.project.demo.vo.Member;
 import com.project.demo.vo.ResultData;
 import com.project.demo.vo.Rq;
 
@@ -47,19 +46,18 @@ public class UsrLoginController {
 			 return rq.jsHistoryBack(joinRd.getResultCode(), joinRd.getMsg());
 		}
 
-		int newMemberId = (int) joinRd.getBody().get("id");
+		
 
-		String afterJoinUri = "../member/login?afterLoginUri=" + Ut.getUriEncoded(afterLoginUri);
+		
 
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 
 		for (String fileInputName : fileMap.keySet()) {
 			MultipartFile multipartFile = fileMap.get(fileInputName);
 
-			if (multipartFile.isEmpty() == false) {
-				genFileService.save(multipartFile, newMemberId);
-			}
-		}
+		
 
-		return rq.jsReplace("회원가입이 완료되었습니다. 로그인 후 이용해주세요.", afterJoinUri);
+		return rq.jsReplace("회원가입이 완료되었습니다. 로그인 후 이용해주세요.",);
 	}
+	}
+}

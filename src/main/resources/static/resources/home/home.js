@@ -82,15 +82,9 @@ function getBgPos(i) {
 }
 
 function addEvents() {
-  $(".login").on("mouseenter", function (event) {
-    const target = $(event);
-
-    target.attr("background-image", "");
+  $(".img").on("click", function (event) {
+	location.href="/usr/home/login";
+    
   });
-  $(".main").on("mouseenter", function (event) {
-    console.log("main마우스가 올라왔습니다.");
-  });
-  $(".join").on("mouseenter", function (event) {
-    console.log("join마우스가 올라왔습니다.");
-  });
+  
 }

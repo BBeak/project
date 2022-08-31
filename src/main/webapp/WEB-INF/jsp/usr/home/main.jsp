@@ -26,16 +26,16 @@
     </section>
       <div class="container">
         <div class="ring">
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img main"></div>
-          <div class="img"></div>
-          <div class="img login"></div>
-          <div class="img"></div>
-          <div class="img join"></div>
-          <div class="img"></div>
-          <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
+           <div class="img"></div>
         </div>
       </div>
     </div>

@@ -32,14 +32,14 @@
           </div>
           <p class="normal light">Or use your email for registration</p>
           <input type="text" placeholder="Name" class="normal name">
-          <input type="text" placeholder="Email" class="normal">
+          <input type="text" placeholder="Email" class="normal email">
           <br/>
-          <input type="password" placeholder="Password" class="normal"><br>
-          <a><p class="normal forgot">Forgot your password?</p></a>
+          <input type="password" placeholder="Password" class="normal password"><br>
+          <a href=""><p class="normal forgot">Forgot your password?</p></a>
    		  <div class="button"></div>
         </div>
       </div>
-      <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/resources/login/login.js"></script>
 </body>
 </html>

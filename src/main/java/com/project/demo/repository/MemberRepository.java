@@ -18,8 +18,6 @@ public interface MemberRepository {
 			loginId = #{loginId},
 			loginPw = #{loginPw},
 			`name` = #{name},
-			nickname = #{nickname},
-			cellphoneNo = #{cellphoneNo},
 			email = #{email}
 						""")
 	void join(@Param("loginId") String loginId, @Param("loginPw") String loginPw, @Param("name") String name, @Param("email") String email);

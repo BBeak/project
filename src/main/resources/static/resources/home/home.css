@@ -8,9 +8,15 @@ body,
   transform-style: preserve-3d;
   user-select: none;
 }
+
+a{
+	display:block;
+}
+
 div .img{
 	cursor:none;
 }
+
 html,
 body,
 .stage {
