@@ -15,7 +15,6 @@ public interface MemberRepository {
 			INSERT INTO `member`
 			SET regDate = NOW(),
 			updateDate = NOW(),
-			loginId = #{loginId},
 			loginPw = #{loginPw},
 			`name` = #{name},
 			email = #{email}
@@ -58,14 +57,8 @@ public interface MemberRepository {
 				<if test="name != null">
 					name = #{name},
 				</if>
-				<if test="nickname != null">
-					nickname = #{nickname},
-				</if>
 				<if test="email != null">
 					email = #{email},
-				</if>
-				<if test="cellphoneNo != null">
-					cellphoneNo = #{cellphoneNo},
 				</if>
 			</set>
 			WHERE id = #{id}

@@ -40,7 +40,17 @@ $(document).on("click",".Signup-b", function(){
 $(document).on("click",".Signin-b", function(){
 	const email = $("input[placeholder=Email]").val();
 	const password = $("input[placeholder=Password]").val();
+	if(email === ""){
+		alert("이메일을 입력해주세요");
+		return;	
+	}
 	
+	if(password === ""){
+		alert("비밀번호를 입력해주세요");
+		return;
+	}else{
+		
+	}
 })
 /** 화면 전환 */
 
