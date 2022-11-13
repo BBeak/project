@@ -35,4 +35,8 @@ public class Article {
 	public String getForPrintType2UpdateDate(){
 		return updateDate.substring(2, 16);
 	}
+	
+	public String getId() {
+		return 
+	}
 }

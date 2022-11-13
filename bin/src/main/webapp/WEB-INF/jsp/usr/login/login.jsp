@@ -13,7 +13,6 @@
 <body>
     <div class="container">
         <div class="move">
-        
           <div class="p-button normal signin animated pulse">SIGN IN</div>
         </div>
         <div class="welcome">

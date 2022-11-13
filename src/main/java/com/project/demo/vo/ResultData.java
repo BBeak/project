@@ -4,8 +4,6 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.project.demo.utill.Ut;
-
 import lombok.Data;
 
 @Data
@@ -45,6 +43,11 @@ public class ResultData<DT> {
 	public static <DT> ResultData<DT> newData(ResultData oldRd, String data1Name, DT newData) {
 		return from(oldRd.getResultCode(), oldRd.getMsg(), data1Name, newData);
 	}
+	public String getResultCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void setData2(String dataName, Object data) {
 		dataName = dataName;
 		data2 = data;
